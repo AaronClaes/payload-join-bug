@@ -8,9 +8,9 @@ export const JoinFieldCollection: CollectionConfig = {
       name: 'defaultPost',
       relationTo: 'posts',
       filterOptions: ({ data }) => {
-        if (!data.posts?.length) return false
+        if (!data.posts?.docs?.length) return false
         return {
-          id: { in: data.posts },
+          id: { in: data.posts.docs },
         }
       },
     },
